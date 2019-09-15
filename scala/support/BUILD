@@ -18,7 +18,6 @@ scala_library(
         "-Ywarn-numeric-widen",
         "-Ywarn-value-discard",
         "-Xfuture",
-        "-Ypartial-unification",
     ],
     visibility = ["//visibility:public"],
     deps = [
