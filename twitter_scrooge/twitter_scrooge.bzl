@@ -40,16 +40,22 @@ def twitter_scrooge(
 
     scala_jar_shas = {
         "2.11": {
-            "util_logging": "73ddd61cedabd4dab82b30e6c52c1be6c692b063b8ba310d716ead9e3b4e9267",
-            "scrooge_core": "00351f73b555d61cfe7320ef3b1367a9641e694cfb8dfa8a733cfcf49df872e8",
-            "scrooge_generator": "0f0027e815e67985895a6f3caa137f02366ceeea4966498f34fb82cabb11dee6",
-            "util_core": "5336da4846dfc3db8ffe5ae076be1021828cfee35aa17bda9af461e203cf265c",
+            "util_logging": "03eec1da863414eca5c6d417330cd2a187e93c493847d8690e9358999f674a39",
+            "scrooge_core": "dc7976e8a93803de9c8a15be446529eb7a0ba85e84af3c8a5a8cfc05748bc46d",
+            "scrooge_generator": "d5d4da1703ff988b56e62bc1e4548261cc7a45d6ec9d9ab4dae327aedb6c0b0d",
+            "util_core": "9c6ee88377cdce85c939bba99d4bb5769230253f9270affc98160ecf0fa12ee0",
         },
         "2.12": {
-            "util_logging": "c0cba01705e9321b3444adcd4a9ce27c2acefd27e14c13b5aec2c318ce1b4fdf",
-            "scrooge_core": "02a6d7cf9fe8d872dfabd20298e4315d677748708e153d8b464fd5abac9a7430",
-            "scrooge_generator": "e7d5da1e3f0e494d3c81a26f44f3e3dc92d7efd757133de8c71758646fd5a833",
-            "util_core": "65bb92e70f95cbbfc640e54a5823a16154eac1a2631dc0211347e085aaa6ed0b",
+            "util_logging": "e7debe013b898e1193fd589fbdfa40b85300bb011f46839b21385e6e8d75bd44",
+            "scrooge_core": "d534b97678d50d9151f29f88bf847ad1bd57e1335634e1d286bccc3575cd1f2d",
+            "scrooge_generator": "e18d426d1f234d66628dcdf94a199449d2ee9671801e93aed51c9d6176f8001a",
+            "util_core": "6e8e38e72f570303362d1453278c07d44a92f0df1afe94a6f3ffa3026746c784",
+        },
+        "2.13": {
+            "util_logging": "2d5754591fdf6893ab2ef76493aeccb560f34a3ba3cfbc6ecff788a2c7b27cdc",
+            "scrooge_core": "836e0ef2659f93d1b94d824a706e223e8daee4d6185e8f644aa8bcec2ef023e7",
+            "scrooge_generator": "b93e528d6d5e497c130864049c04649af8f560c4986717e656f5e1e32774947b",
+            "util_core": "c2fed45cbd0423419e43b6d78136b85cd1e35ede5ee278689af98fca313696b3",
         },
     }
 
@@ -58,7 +64,7 @@ def twitter_scrooge(
     _scala_maven_import_external(
         name = "io_bazel_rules_scala_scrooge_core",
         artifact = _scala_mvn_artifact(
-            "com.twitter:scrooge-core:18.6.0",
+            "com.twitter:scrooge-core:19.9.0",
             major_version,
         ),
         artifact_sha256 = scala_version_jar_shas["scrooge_core"],
@@ -74,7 +80,7 @@ def twitter_scrooge(
     _scala_maven_import_external(
         name = "io_bazel_rules_scala_scrooge_generator",
         artifact = _scala_mvn_artifact(
-            "com.twitter:scrooge-generator:18.6.0",
+            "com.twitter:scrooge-generator:19.9.0",
             major_version,
         ),
         artifact_sha256 = scala_version_jar_shas["scrooge_generator"],
@@ -89,7 +95,7 @@ def twitter_scrooge(
     _scala_maven_import_external(
         name = "io_bazel_rules_scala_util_core",
         artifact = _scala_mvn_artifact(
-            "com.twitter:util-core:18.6.0",
+            "com.twitter:util-core:19.9.0",
             major_version,
         ),
         artifact_sha256 = scala_version_jar_shas["util_core"],
@@ -104,7 +110,7 @@ def twitter_scrooge(
     _scala_maven_import_external(
         name = "io_bazel_rules_scala_util_logging",
         artifact = _scala_mvn_artifact(
-            "com.twitter:util-logging:18.6.0",
+            "com.twitter:util-logging:19.9.0",
             major_version,
         ),
         artifact_sha256 = scala_version_jar_shas["util_logging"],

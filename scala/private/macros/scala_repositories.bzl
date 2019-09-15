@@ -49,6 +49,24 @@ def _default_scala_extra_jars():
                 "sha256": "282c78d064d3e8f09b3663190d9494b85e0bb7d96b0da05994fe994384d96111",
             },
         },
+        "2.13": {
+            "scalatest": {
+                "version": "3.0.5",
+                "sha256": "b416b5bcef6720da469a8d8a5726e457fc2d1cd5d316e1bc283aa75a2ae005e5",
+            },
+            "scalactic": {
+                "version": "3.0.5",
+                "sha256": "57e25b4fd969b1758fe042595112c874dfea99dca5cc48eebe07ac38772a0c41",
+            },
+            "scala_xml": {
+                "version": "1.0.5",
+                "sha256": "035015366f54f403d076d95f4529ce9eeaf544064dbc17c2d10e4f5908ef4256",
+            },
+            "scala_parser_combinators": {
+                "version": "1.0.4",
+                "sha256": "282c78d064d3e8f09b3663190d9494b85e0bb7d96b0da05994fe994384d96111",
+            },
+        },
     }
 
 def scala_repositories(
@@ -59,6 +77,7 @@ def scala_repositories(
         maven_servers = ["http://central.maven.org/maven2"],
         scala_extra_jars = _default_scala_extra_jars()):
     (scala_version, scala_version_jar_shas) = scala_version_shas
+
     major_version = _extract_major_version(scala_version)
 
     _new_scala_default_repository(

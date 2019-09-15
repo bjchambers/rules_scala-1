@@ -10,7 +10,7 @@ load(
 )
 
 def specs2_version():
-    return "4.4.1"
+    return "4.7.0"
 
 def specs2_repositories(
         scala_version = _default_scala_version(),
@@ -19,16 +19,22 @@ def specs2_repositories(
 
     scala_jar_shas = {
         "2.11": {
-            "specs2_common": "52d7c0da58725606e98c6e8c81d2efe632053520a25da9140116d04a4abf9d2c",
-            "specs2_core": "8e95cb7e347e7a87e7a80466cbd88419ece1aaacb35c32e8bd7d299a623b31b9",
-            "specs2_fp": "e43006fdd0726ffcd1e04c6c4d795176f5f765cc787cc09baebe1fcb009e4462",
-            "specs2_matcher": "448e5ab89d4d650d23030fdbee66a010a07dcac5e4c3e73ef5fe39ca1aace1cd",
+            "specs2_common": "cb066b5bad6a2aef93077086e5311c7c5f19500a138f67d3f9c8f32b14e4bea5",
+            "specs2_core": "d4e52b207f4e5834b882ac3d7a2f8e8f2af9fa5fe30c7a45d1e63bb6fdd150c4",
+            "specs2_fp": "ea83c6389b1cfb465d0b9bd8d349753837aa05fe5cd418f32560c897e5d3648f",
+            "specs2_matcher": "16c6d6730e45bc7387b766af20fa2f65cef6df0aa22a1ba40fb844f65110fd0f",
         },
         "2.12": {
-            "specs2_common": "7b7d2497bfe10ad552f5ab3780537c7db9961d0ae841098d5ebd91c78d09438a",
-            "specs2_core": "f92c3c83844aac13250acec4eb247a2a26a2b3f04e79ef1bf42c56de4e0bb2e7",
-            "specs2_fp": "834a145b28dbf57ba6d96f02a3862522e693b5aeec44d4cb2f305ef5617dc73f",
-            "specs2_matcher": "78c699001c307dcc5dcbec8a80cd9f14e9bdaa047579c3d1010ee4bea66805fe",
+            "specs2_common": "3adf0501036081f8314853030775dda79d879dbd9b57f4ec6836f2b220f84dfa",
+            "specs2_core": "f34c0bddab74432cb0524f18ddae92369936cfd40f76f896857c2f193357018d",
+            "specs2_fp": "279baac59790c83f7de0de03ad7fc468f4dd5594f94dc2bc12e35d8d7694c4a1",
+            "specs2_matcher": "e15a253fed025db193c63a188eb212c2bb7160ab6bb70a9a841bbc2686bca18b",
+        },
+        "2.13": {
+            "specs2_common": "a385c79f9df7f908657108a765ba32bff0fb21415154aa9e16fce7e9d501fbd5",
+            "specs2_core": "346f16e5a7dba1e6fe84a4476fb0c467f93f85217d39e9beaf50a917ddc90307",
+            "specs2_fp": "2110c703d5771dba616e36207e8560a9eba1908eded1cebf0b2561cce54ac6f5",
+            "specs2_matcher": "08857c2830b3a1b006a5a3996b5ae5ba5806fd5a1a57aa8db9b413fa89157746",
         },
     }
 

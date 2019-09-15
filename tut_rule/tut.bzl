@@ -17,17 +17,20 @@ def tut_repositories(
 
     scala_jar_shas = {
         "2.11": {
-            "tut_core": "edab4e9963dd7dbab1a8bfff2ef087eb6b6882804dfb3a2641895c958a62ba89",
+            "tut_core": "e72f620ba6d79827b6d4ea29ff71398c7e4e1cddef636515d7289dde8a7f196b",
         },
         "2.12": {
-            "tut_core": "767735128b6d5694d59ccb3bd1f5544a05d83146577121bcf7b6a32327adf281",
+            "tut_core": "48173af56de62c9a3b81610d5d2de115598acc697d1412918d49c256f1bc48e7",
+        },
+        "2.13": {
+            "tut_core": "cc82f10489cd0214d52a11f7b9af6206901c84f2341d0ef90c9e98bb8ba63dad",
         },
     }
 
     _scala_maven_import_external(
         name = "io_bazel_rules_scala_org_tpolecat_tut_core",
         artifact = scala_mvn_artifact(
-            "org.tpolecat:tut-core:0.4.8",
+            "org.tpolecat:tut-core:0.6.8",
             major_version,
         ),
         artifact_sha256 = scala_jar_shas[major_version]["tut_core"],
