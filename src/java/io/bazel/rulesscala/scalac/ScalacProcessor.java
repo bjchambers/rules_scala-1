@@ -4,6 +4,9 @@ import io.bazel.rulesscala.jar.JarCreator;
 import io.bazel.rulesscala.worker.GenericWorker;
 import io.bazel.rulesscala.worker.Processor;
 import java.io.*;
+import java.lang.invoke.MethodHandle;
+import java.lang.invoke.MethodHandles;
+import java.lang.invoke.MethodType;
 import java.lang.reflect.Field;
 import java.nio.file.FileSystems;
 import java.nio.file.FileVisitResult;
@@ -203,6 +206,24 @@ class ScalacProcessor implements Processor {
     return pluginParams.toArray(new String[pluginParams.size()]);
   }
 
+  private static MethodHandle getFinishMH() {
+    MethodType mt = MethodType.methodType(void.class);
+    try {
+      return MethodHandles.publicLookup().findVirtual(ConsoleReporter.class, "finish", mt);
+    } catch (NoSuchMethodException finishE) {
+      try {
+        return MethodHandles.publicLookup().findVirtual(ConsoleReporter.class, "printSummary", mt);
+      } catch (NoSuchMethodException e) {
+        throw new RuntimeException("No 'finish' or 'printSummary' method on ConsoleReporter");
+      } catch (IllegalAccessException | SecurityException | NullPointerException e) {
+        throw new RuntimeException("Exception accessing printSummary method on ConsoleReporter", e);
+      }
+    } catch (IllegalAccessException | SecurityException | NullPointerException e) {
+      throw new RuntimeException("Exception accessing printSummary method on ConsoleReporter", e);
+    }
+  }
+  private static final MethodHandle finishMH = getFinishMH();
+
   private static void compileScalaSources(CompileOptions ops, String[] scalaSources, Path tmpPath)
       throws IllegalAccessException {
 
@@ -239,7 +260,11 @@ class ScalacProcessor implements Processor {
     ConsoleReporter reporter = (ConsoleReporter) reporterField.get(comp);
 
     if (reporter.hasErrors()) {
-      reporter.printSummary();
+      try {
+        finishMH.invoke(reporter);
+      } catch (Throwable e) {
+        throw new RuntimeException("Failed to finish reporter", e);
+      }
       reporter.flush();
       throw new RuntimeException("Build failed");
     }
