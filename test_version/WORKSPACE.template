@@ -31,8 +31,9 @@ load("@io_bazel_rules_scala//specs2:specs2_junit.bzl", "specs2_junit_repositorie
 
 specs2_junit_repositories(scala_version)
 
-load("@io_bazel_rules_scala//scala:toolchains.bzl", "scala_register_unused_deps_toolchains")
+load("@io_bazel_rules_scala//scala:toolchains.bzl", "scala_register_toolchains", "scala_register_unused_deps_toolchains")
 
+scala_register_toolchains()
 scala_register_unused_deps_toolchains()
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
@@ -51,3 +52,6 @@ http_archive(
     urls = ["https://github.com/protocolbuffers/protobuf/archive/v3.6.1.3.zip"],
     strip_prefix = "protobuf-3.6.1.3",
 )
+
+load("@io_bazel_rules_scala//scala_proto:toolchains.bzl", "scala_proto_register_toolchains")
+scala_proto_register_toolchains()
