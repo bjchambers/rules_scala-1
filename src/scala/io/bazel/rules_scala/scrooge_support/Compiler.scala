@@ -139,7 +139,7 @@ class Compiler {
           language,
           resolvedDoc,
           defaultNamespace,
-          experimentFlags)
+          experimentFlags.toSeq)
 
         generator match {
           case g: ScalaGenerator => g.warnOnJavaNamespaceFallback = scalaWarnOnJavaNSFallback

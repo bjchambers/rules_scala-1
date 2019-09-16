@@ -16,13 +16,6 @@ import scala.util.{Try, Failure}
 
 object ScalaPBWorker extends GenericWorker(new ScalaPBGenerator) {
 
-  override protected def setupOutput(ps: PrintStream): Unit = {
-    System.setOut(ps)
-    System.setErr(ps)
-    Console.setErr(ps)
-    Console.setOut(ps)
-  }
-
   def main(args: Array[String]) {
     try run(args)
     catch {
